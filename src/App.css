@@ -1,0 +1,9 @@
+.login-container{
+    background: linear-gradient(to right, rgba(254, 157, 0, 0.9), rgba(254, 157, 0, 0.5));
+}
+.sidebarContainer{
+    background-color: #F2EAE1;
+}
+.sidebarContainer .ps-sidebar-container{
+    background-color: transparent;
+}
