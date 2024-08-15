@@ -5,10 +5,12 @@ import profileImg from '../../assets/images/profile.jpg'
 import { AuthContext } from '../../context/AuthContext';
 
 export default function SideBar() {
+  
   let { userData } = useContext(AuthContext)
   const [isCollapsed, setIsCollapsed] = useState(false);
   let toggleCollapse = () => {
     setIsCollapsed(!isCollapsed)
+
   }
   return (
     <>
@@ -27,6 +29,7 @@ export default function SideBar() {
             <MenuItem icon={<i className='fa fa-list'></i>} component={<Link to="/dashboard/usersList" />}> Users</MenuItem>
             <MenuItem icon={<i className='fa fa-users'></i>} component={<Link to="/dashboard/usersData" />}> User Data</MenuItem>
             <MenuItem icon={<i className="fa fa-user"></i>} component={<Link to="/dashboard/profile" />}> Profile</MenuItem>
+            <MenuItem icon={<i className="fa-solid fa-right-from-bracket"></i>} component={<Link to="/login"/>} className='text-danger'> logout</MenuItem>
           </Menu>
         </Sidebar>;
       </div>

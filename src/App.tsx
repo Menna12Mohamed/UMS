@@ -13,7 +13,7 @@ import UsersData from './components/UsersData/UsersData';
 import Profile from './components/Profile/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import MaterialUl from './components/MterialUl/MaterialUl';
+
 
 function App() {
   
@@ -24,8 +24,7 @@ function App() {
       errorElement: <Notfound />,
       children: [
         { index: true, element: <Login /> },
-        { path: 'login', element: <Login /> },
-        { path: 'material-ui', element: <MaterialUl /> },
+        { path: '/login', element: <Login /> },
       ],
     },
     {

@@ -90,8 +90,8 @@ export default function UsersList() {
                 <td>{user.phone}</td>
                 <td>{user.birthDate}</td>
                 <td>
-                  <i className='fa fa-edit text-warning mx-3' aria-hidden="true" onClick={() => editUser(user.id)}></i>
-                  <i onClick={() => handleShow(user)} className='fa fa-trash text-warning' aria-hidden="true"></i>
+                  <i className='fa fa-edit text-warning mx-1' aria-hidden="true" onClick={() => editUser(user.id)}></i>
+                  <i onClick={() => handleShow(user)} className='fa fa-trash text-warning  mx-1' aria-hidden="true"></i>
                 </td>
               </tr>
             ))}
