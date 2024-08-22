@@ -30,7 +30,7 @@ export default function UsersData() {
     }
   }, [userId, setValue])
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     try {
       if (isUpdate) {
         await axios.put(`https://dummyjson.com/users/${userId}`, data)
