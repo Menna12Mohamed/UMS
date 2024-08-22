@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import {  AuthContext } from '../../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 export default function Login() {
   let { seveUserData } = useContext(AuthContext)
   let navigate = useNavigate();

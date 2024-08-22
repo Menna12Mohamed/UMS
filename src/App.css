@@ -3,6 +3,7 @@
 }
 .sidebarContainer{
     background-color: #F2EAE1;
+    /* height: 100%; */
 }
 .sidebarContainer .ps-sidebar-container{
     background-color: transparent;

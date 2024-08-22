@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 import profileImg from '../../assets/images/profile.jpg'
@@ -15,13 +15,13 @@ export default function SideBar() {
   return (
     <>
 
-      <div className='sidebarContainer  vh-100'>
+      <div className='sidebarContainer h-100'>
         <Sidebar collapsed={isCollapsed}>
-          <Menu>
+          <Menu className='vh-100'>
             {isCollapsed ?
               <i onClick={toggleCollapse} className='fa fa-arrow-right px-5' aria-hidden="true"></i> :
               <i onClick={toggleCollapse} className='fa fa-arrow-left px-5' aria-hidden="true"></i>}
-            <div className='text-center my-5'>
+            <div className='text-center  my-5'>
               <img src={userData?.image } className='rounded-circle my-3' alt="profile" />
               <h6>{userData?.firstName} {userData?.lastName}</h6>
             </div>
