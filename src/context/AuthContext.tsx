@@ -1,23 +1,26 @@
 import jwtDecode from "jwt-decode";
-import { createContext, useEffect, useState } from "react";
-
+import { createContext, useEffect, useState, ReactNode } from "react";
 
 interface UserData {
-
     name: string;
     email: string;
-
+    id?: number; // تأكد من وجود id إذا كنت تستخدمه
 }
 
-export let AuthContext = createContext<{ userData: UserData | null, saveUserData: () => void } | null>(null);
+interface AuthContextType {
+    userData: UserData | null;
+    saveUserData: () => void;
+}
 
-export default function AuthContextProvider(props: { children: React.ReactNode }) {
+export const AuthContext = createContext<AuthContextType | null>(null);
+
+export default function AuthContextProvider({ children }: { children: ReactNode }) {
     const [userData, setUserData] = useState<UserData | null>(null);
 
-    let saveUserData = () => {
-        let encodedToken = localStorage.getItem('userToken');
+    const saveUserData = () => {
+        const encodedToken = localStorage.getItem('userToken');
         if (encodedToken) {
-            let decodedToken: UserData = jwtDecode(encodedToken);
+            const decodedToken: UserData = jwtDecode(encodedToken);
             setUserData(decodedToken);
         }
     }
@@ -30,7 +33,7 @@ export default function AuthContextProvider(props: { children: React.ReactNode }
 
     return (
         <AuthContext.Provider value={{ userData, saveUserData }}>
-            {props.children}
+            {children}
         </AuthContext.Provider>
     );
 }
