@@ -1,14 +1,14 @@
 import axios from 'axios';
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import {  AuthContext } from '../../context/AuthContext';
+import {  toast } from 'react-toastify';
+import { AuthContext } from '../../context/AuthContext';
 export default function Login() {
-  let { seveUserData } = useContext(AuthContext)
+  let { seveUserData }  :any = useContext(AuthContext)
   let navigate = useNavigate();
   let { register, handleSubmit, formState: { errors } } = useForm();
-  let onSubmit = async (data) => {
+  let onSubmit = async (data: any) => {
     try {
       let response = await axios.post('https://dummyjson.com/auth/login', data);
       localStorage.setItem("userToken", response.data.token);

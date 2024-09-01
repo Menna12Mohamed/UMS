@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 export default function NavBar() {
-  let { userData } = useContext(AuthContext)
+  let { userData } :any = useContext(AuthContext)
   return (
    <>
    <nav className="navbar navbar-expand-lg bg-light">

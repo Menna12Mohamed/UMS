@@ -1,12 +1,12 @@
 import axios from 'axios'
-import React, { useEffect, useState, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthContext'
 
 export default function Profile() {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm()
-  const { userData } = useContext(AuthContext)
+  const { userData }: any = useContext(AuthContext)
 
   useEffect(() => {
     if (userData) {
@@ -24,7 +24,7 @@ export default function Profile() {
     }
   }, [userData, setValue])
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     try {
       await axios.put(`https://dummyjson.com/users/${userData.id}`, data)
       toast.success('Profile updated successfully')
