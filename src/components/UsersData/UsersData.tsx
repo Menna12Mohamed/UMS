@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -30,7 +30,7 @@ export default function UsersData() {
     }
   }, [userId, setValue])
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data:any) => {
     try {
       if (isUpdate) {
         await axios.put(`https://dummyjson.com/users/${userId}`, data)

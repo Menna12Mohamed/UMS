@@ -1,5 +1,5 @@
 import axios from 'axios'
-import{ useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { useNavigate } from 'react-router-dom'
@@ -13,7 +13,7 @@ export default function UsersList() {
   const [userData, setUserData] = useState(null)
 
   const handleClose = () => setShow(false)
-  const handleShow = (user  :any )=> {
+  const handleShow = (user: any) => {
     setShow(true)
     setUserData(user)
     setUserId(user.id)
@@ -32,7 +32,7 @@ export default function UsersList() {
     navigate("/dashboard/usersData")
   }
 
-  const editUser = (userId  :any ) => {
+  const editUser = (userId:any) => {
     navigate(`/dashboard/usersData/${userId}`)
   }
 
@@ -41,7 +41,7 @@ export default function UsersList() {
       await axios.delete(`https://dummyjson.com/users/${userId}`)
       toast.success('delete success')
       handleClose()
-      getUsers() 
+      getUsers()
     } catch (error) {
       console.log(error)
     }

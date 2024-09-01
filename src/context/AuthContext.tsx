@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 
 export let AuthContext = createContext(null);
 
-export default function AuthContextProvider(props) {
+export default function AuthContextProvider(props : any) {
     const [userData, setUserData] = useState(null)
 
   

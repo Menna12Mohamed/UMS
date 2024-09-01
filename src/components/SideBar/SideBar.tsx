@@ -1,12 +1,12 @@
-import  { useContext, useState } from 'react'
-import { Sidebar, Menu, MenuItem} from 'react-pro-sidebar';
+import React, { useContext, useState } from 'react'
+import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
-
+import profileImg from '../../assets/images/profile.jpg'
 import { AuthContext } from '../../context/AuthContext';
 
 export default function SideBar() {
   
-  let { userData }:any = useContext(AuthContext)
+  let { userData } = useContext(AuthContext)
   const [isCollapsed, setIsCollapsed] = useState(false);
   let toggleCollapse = () => {
     setIsCollapsed(!isCollapsed)
