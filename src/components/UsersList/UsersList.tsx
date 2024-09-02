@@ -5,15 +5,26 @@ import Modal from 'react-bootstrap/Modal'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+
+type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  birthDate: string;
+  image: string;
+}
+
 export default function UsersList() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState<User[]>([])
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
-  const [userId, setUserId] = useState(0)
-  const [userData, setUserData] = useState(null)
+  const [userId, setUserId] = useState<number | null>(null)
+  const [userData, setUserData] = useState<User | null>(null)
 
   const handleClose = () => setShow(false)
-  const handleShow = (user: any) => {
+  const handleShow = (user: User) => {
     setShow(true)
     setUserData(user)
     setUserId(user.id)
@@ -32,16 +43,18 @@ export default function UsersList() {
     navigate("/dashboard/usersData")
   }
 
-  const editUser = (userId:any) => {
+  const editUser = (userId: number) => {
     navigate(`/dashboard/usersData/${userId}`)
   }
 
   const deleteUser = async () => {
     try {
-      await axios.delete(`https://dummyjson.com/users/${userId}`)
-      toast.success('delete success')
-      handleClose()
-      getUsers()
+      if (userId !== null) {
+        await axios.delete(`https://dummyjson.com/users/${userId}`)
+        toast.success('Delete successful')
+        handleClose()
+        getUsers()
+      }
     } catch (error) {
       console.log(error)
     }
@@ -84,7 +97,7 @@ export default function UsersList() {
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
-                <th scope="row"><img className='w-25' src={user.image} alt="" /></th>
+                <th scope="row"><img className='w-25' src={user.image} alt={`${user.firstName}'s image`} /></th>
                 <td>{user.firstName} {user.lastName}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
