@@ -49,41 +49,41 @@ export default function Profile() {
               <label className="form-label">First Name</label>
               <input type="text" className="form-control" placeholder="Enter your First Name" {...register("firstName", { required: "First name is required" })} />
             </div>
-            {errors.firstName && <span className='text-danger'>{errors.firstName.message}</span>}
+            {errors.firstName && <span className='text-danger'>{errors.firstName.message as string}</span>}
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Last Name</label>
               <input type="text" className="form-control" placeholder="Enter your Last Name" {...register("lastName", { required: "Last name is required" })} />
             </div>
-            {errors.lastName && <span className='text-danger'>{errors.lastName.message}</span>}
+            {errors.lastName && <span className='text-danger'>{errors.lastName.message as string}</span>}
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Email</label>
               <input type="text" className="form-control" placeholder="Enter your Email" {...register("email", { required: "Email is required", pattern: { value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, message: 'Email should be valid' } })} />
             </div>
-            {errors.email && <span className='text-danger'>{errors.email.message}</span>}
+            {errors.email && <span className='text-danger'>{errors.email.message as string}</span>}
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Age</label>
               <input type="number" className="form-control" placeholder="Enter your Age" {...register("age", { required: "Age is required", max: { value: 50, message: 'Max age is 50' } })} />
             </div>
-            {errors.age && <span className='text-danger'>{errors.age.message}</span>}
+            {errors.age && <span className='text-danger'>{errors.age.message as string}</span>}
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Phone</label>
               <input type="text" className="form-control" placeholder="Enter your Phone" {...register("phone", { required: "Phone is required" })} />
             </div>
-            {errors.phone && <span className='text-danger'>{errors.phone.message}</span>}
+            {errors.phone && <span className='text-danger'>{errors.phone.message as string}</span>}
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Birth Date</label>
               <input type="text" className="form-control" {...register("birthDate", { required: "Birth date is required" })} />
-              {errors.birthDate && <span className='text-danger'>{errors.birthDate.message}</span>}
+              {errors.birthDate && <span className='text-danger'>{errors.birthDate.message as string}</span>}
             </div>
           </div>
         </div>

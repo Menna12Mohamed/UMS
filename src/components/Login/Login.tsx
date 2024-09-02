@@ -40,12 +40,13 @@ export default function Login() {
                 <label className="form-label">Email</label>
                 <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Enter your email"  {...register("username", { required: "Username is required" })} />
               </div>
-              {errors?.username && <span className='text-danger'>{errors?.username?.message}</span>}
+              {errors?.username?.message && <span className='text-danger'>{errors.username.message as string}</span>}
               <div className="mb-3">
                 <label className="form-label">Password</label>
                 <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Enter your password"  {...register("password", { required: "password is requored" })} />
               </div>
-              {errors?.password && <span className='text-danger'>{errors?.password?.message}</span>}
+              {errors?.password?.message && <span className='text-danger'>{errors.password.message as string}</span>}
+
               <button type='submit' className='btn btn-warning text-white w-100'>SIGN IN</button>
             </form>
           </div>
