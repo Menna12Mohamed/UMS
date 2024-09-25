@@ -97,7 +97,7 @@ export default function UsersList() {
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
-                <th scope="row"><img className='w-25' src={user.image} alt={`${user.firstName}'s image`} /></th>
+                <th scope="row"><img className='w-25' src={user.image}  /></th>
                 <td>{user.firstName} {user.lastName}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>

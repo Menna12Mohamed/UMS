@@ -1,11 +1,10 @@
 import axios from 'axios'
 import  { useEffect,  useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthContext'
 
 export default function Profile() {
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm()
+  const { register, handleSubmit, setValue} = useForm()
   const { userData } :any= useContext(AuthContext)
 
   useEffect(() => {
@@ -27,7 +26,7 @@ export default function Profile() {
   const onSubmit = async (data :any) => {
     try {
       await axios.put(`https://dummyjson.com/users/${userData.id}`, data)
-      toast.success('Profile updated successfully')
+     
     } catch (error) {
       console.log(error)
     }
@@ -47,43 +46,43 @@ export default function Profile() {
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">First Name</label>
-              <input type="text" className="form-control" placeholder="Enter your First Name" {...register("firstName", { required: "First name is required" })} />
+              <input type="text" className="form-control" placeholder="Enter your First Name" {...register("firstName")} />
             </div>
-            {errors.firstName && <span className='text-danger'>{errors.firstName.message as string}</span>}
+      
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Last Name</label>
-              <input type="text" className="form-control" placeholder="Enter your Last Name" {...register("lastName", { required: "Last name is required" })} />
+              <input type="text" className="form-control" placeholder="Enter your Last Name" {...register("lastName")} />
             </div>
-            {errors.lastName && <span className='text-danger'>{errors.lastName.message as string}</span>}
+        
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Email</label>
-              <input type="text" className="form-control" placeholder="Enter your Email" {...register("email", { required: "Email is required", pattern: { value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, message: 'Email should be valid' } })} />
+              <input type="text" className="form-control" placeholder="Enter your Email" {...register("email")} />
             </div>
-            {errors.email && <span className='text-danger'>{errors.email.message as string}</span>}
+           
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Age</label>
-              <input type="number" className="form-control" placeholder="Enter your Age" {...register("age", { required: "Age is required", max: { value: 50, message: 'Max age is 50' } })} />
+              <input type="number" className="form-control" placeholder="Enter your Age" {...register("age")} />
             </div>
-            {errors.age && <span className='text-danger'>{errors.age.message as string}</span>}
+          
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Phone</label>
-              <input type="text" className="form-control" placeholder="Enter your Phone" {...register("phone", { required: "Phone is required" })} />
+              <input type="text" className="form-control" placeholder="Enter your Phone" {...register("phone")} />
             </div>
-            {errors.phone && <span className='text-danger'>{errors.phone.message as string}</span>}
+         
           </div>
           <div className="col-md-6">
             <div className="mb-3">
               <label className="form-label">Birth Date</label>
-              <input type="text" className="form-control" {...register("birthDate", { required: "Birth date is required" })} />
-              {errors.birthDate && <span className='text-danger'>{errors.birthDate.message as string}</span>}
+              <input type="text" className="form-control" {...register("birthDate")} />
+             
             </div>
           </div>
         </div>
