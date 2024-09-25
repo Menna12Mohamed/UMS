@@ -11,7 +11,7 @@ export default function Login() {
   let onSubmit = async (data:any) => {
     try {
       let response = await axios.post('https://dummyjson.com/auth/login', data);
-      localStorage.setItem("userToken", response.data.token);
+      localStorage.setItem("userToken", response.data.accessToken);
       seveUserData()
       toast.success("login success");
 
@@ -20,6 +20,7 @@ export default function Login() {
     } catch (error) {
 
       console.log(error);
+      toast.error("try again");
 
     }
 
